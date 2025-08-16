@@ -1,16 +1,28 @@
+STEP 1: ASK
 Business Task: Assess whether AI-generated content adoption improves business outcomes (revenue, consumer trust, and market share) across industries.
-Dataset: https://www.kaggle.com/datasets/atharvasoundankar/impact-of-ai-on-digital-media-2020-2025?resource=download
+
+Stakeholders: Marketing departments and Agencies across differnet industries 
+
 Follow up questions:
 
-Which industries show the greatest Revenue Increase (%) from AI-generated content adoption between 2020–2025?
+-Which industries show the greatest Revenue Increase (%) from AI-generated content adoption between 2020–2025?
+-Is there a clear correlation between AI Adoption Rate (%) and Revenue Increase (%) across industries and countries?
+-How does Consumer Trust in AI (%) vary with higher adoption and ROI? Do industries with strong ROI risk lower trust?
+-What is the relationship between Human-AI Collaboration Rate (%) and Job Loss Due to AI (%)? Can collaboration reduce negative workforce impacts while still boosting ROI?
+-Do countries with active AI Regulation Status show different ROI or trust levels compared to unregulated markets?
 
-Is there a clear correlation between AI Adoption Rate (%) and Revenue Increase (%) across industries and countries?
 
-How does Consumer Trust in AI (%) vary with higher adoption and ROI? Do industries with strong ROI risk lower trust?
+Step 2: Prepare
 
-What is the relationship between Human-AI Collaboration Rate (%) and Job Loss Due to AI (%)? Can collaboration reduce negative workforce impacts while still boosting ROI?
+Dataset: https://www.kaggle.com/datasets/atharvasoundankar/impact-of-ai-on-digital-media-2020-2025?resource=download
 
-Do countries with active AI Regulation Status show different ROI or trust levels compared to unregulated markets?
-Process rough draft:
+- Validate data
+Sources from where data is used are verified
+- Clean data
+Duplicate table and change format to remove spaces in schema 
+Change column names to not have spaces
+Made sure format was consistent and no empty spaces 
 
-ASK: Stakeholders: Internal Marketing department, Companies that are using the marketing services 
+
+
+

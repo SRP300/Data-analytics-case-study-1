@@ -17,3 +17,9 @@ SELECT Industry, Round(AVG(AI_Adoption_rate),2) AS avg_AI_Adoption_rate, Round(A
 FROM `fair-analogy-469221-s0.AI_Impact_on_DIgital_Media.clean` 
 GROUP BY Industry ORDER BY avg_AI_Adoption_rate desc
  
+## Look at avg adoption rate and increase in revenue by year ##
+SELECT Year, Round(AVG(AI_Adoption_rate),2) AS avg_AI_Adoption_rate, Round(AVG(Revenue_Increase_Due_to_AI),2) AS avg_Revenue_Increase_Due_to_AI
+FROM `fair-analogy-469221-s0.AI_Impact_on_DIgital_Media.clean` 
+GROUP BY Year ORDER BY Year, avg_AI_Adoption_rate desc
+
+ 

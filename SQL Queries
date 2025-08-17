@@ -1,8 +1,7 @@
-## Change all column names to not have spaces so they are in a SQL query friendly format ##
+## Create a new table and change all column names to not have spaces so they are in a SQL query friendly format ##
 
-Create or replace TABLE `Global_AI_Content_Impact.1` AS 
-SELECT 
-`AI_Adoption_rateAI Adoption Rate _%_` AS AI_Adoption_rate,
+Create or replace table `AI_Impact_on_DIgital_Media.clean` AS 
+SELECT Country, Year, Industry,`AI Adoption Rate _%_` AS AI_Adoption_rate,
 `AI-Generated Content Volume _TBs per year_` AS AI_Generated_Content_Volume,
 `Job Loss Due to AI _%_`AS Job_Loss_Due_to_AI, 
 `Revenue Increase Due to AI _%_` AS Revenue_Increase_Due_to_AI,
@@ -10,5 +9,4 @@ SELECT
 `Top AI Tools Used` AS Top_AI_Tools_Used,
 `Regulation Status` AS Regulation_Status,
 `Consumer Trust in AI _%_` AS Consumer_Trust_in_AI,
-`Market Share of AI Companies _%_`AS Market_Share_of_AI_Companies 
-FROM `fair-analogy-469221-s0.Global_AI_Content_Impact.1` 
+`Market Share of AI Companies _%_`AS Market_Share_of_AI_Companies FROM `fair-analogy-469221-s0.AI_Impact_on_DIgital_Media.test`

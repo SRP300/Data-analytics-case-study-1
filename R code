@@ -1,2 +1,9 @@
-#Import packages
-Read
+# Import Data and cleaning data #
+install.packages("tidyverse")
+install.packages("janitor")
+library(tidyverse)
+library(janitor)
+read_csv(Global_AI_Content_Impact_Dataset)
+Global_AI_Content_Impact_Dataset <- Global_AI_Content_Impact_Dataset %>%
+  clean_names()
+

@@ -13,28 +13,29 @@ ai_impact <- read_csv("Global_AI_Content_Impact_Dataset.csv") %>%
 plot_revenue <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent, y =
                       revenue_increase_due_to_ai_percent,
                       colour = industry)) + 
-  geom_point(size = 3, alpha(7))+
-  geom_smooth(method = "lm", se = FALSE, linetype = "dashed")+
-  labs(title = "Impact of AI Adoption on Revenue and Market Share Across Industries",
+
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Revenue Increase vs AI Adoption Across Industries",
        x = "AI Adoption Rate (%)",
        y = "Revenue Increase (%)",
-       color = "Industry" +
-         theme_minimal()
+       color = "Industry") +
+  theme_minimal()
+
+
 # Market Share vs AI adoption #
 
 plot_market <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent, 
                       y = market_share_of_ai_companies_percent,
                       colour = industry)) + 
-  geom_point(size = 3, alpha(7))+
-  geom_smooth(method = "lm", se = FALSE, linetype = "dashed")+
-  labs(title = "Impact of AI Adoption on Revenue and Market Share Across Industries",
+  
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Market Share vs AI Adoption Across Industries",
        x = "AI Adoption Rate (%)",
        y = "Market share (%)",
-       color = "Industry" +
-         theme_minimal()
+       color = "Industry") +
+  theme_minimal()()
+
 # Combine both plots and legends #
 
- plot_1 <- plot_market/plot_revenue + 
+ plot_1 <- plot_revenue / plot_market + 
    plot_layout(guides = "collect")
- 
-       

@@ -1,4 +1,4 @@
-# Installing and loading packages #
+#### Installing and loading packages ####
 
 if (!require("pacman")) install.packages("pacman")
 library(pacman)
@@ -9,6 +9,7 @@ p_load(tidyverse, janitor, lubridate, patchwork)
 ai_impact <- read_csv("Global_AI_Content_Impact_Dataset.csv") %>%
   clean_names()
 
+#### Visual 1: Revenue and Market share impacts from AI Adoption plot  ####
 
 #  Revenue vs AI Adoption plot #
 plot_revenue <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent,
@@ -42,7 +43,6 @@ plot_market <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent,
   # Make a Bold overall trend line #
   geom_smooth(aes(group = 1), method = "lm", se = FALSE,
               color = "black", size = 1.5, linetype = "solid") +
-  
   labs(title = "AI Adoption vs Market Share",
        subtitle = "Overall trend highlighted in black, industry trends faded",
        x = "AI Adoption Rate (%)",
@@ -54,7 +54,7 @@ plot_market <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent,
     legend.position = "bottom"
   )
 
-# Combine both plots into one #
+#### Combine both plots into one #
 final_dashboard <- (plot_revenue + plot_market) +
   plot_layout(guides = "collect") &
   theme(legend.position = "bottom")
@@ -62,3 +62,25 @@ final_dashboard <- (plot_revenue + plot_market) +
 # Print final dashboard #
 
 print(final_dashboard)
+
+
+#### Visual 2: Make heatmap of AI-Generated Content by Year and Industry ####
+
+plot_heatmap <- ggplot(ai_impact, aes(x = year, y = industry, fill = ai_generated_content_volume_t_bs_per_year)) +
+  geom_tile(color = "white") +  # creates the colored tiles
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +  # color gradient for values
+  labs(
+    title = "AI-Generated Content by Year and Industry",
+    x = "Year",
+    y = "Industry",
+    fill = "Content Volume (T BS)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.minor = element_blank()
+  )
+
+#### Visual 3: 
+

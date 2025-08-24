@@ -8,34 +8,57 @@ p_load(tidyverse, janitor, lubridate, patchwork)
 
 ai_impact <- read_csv("Global_AI_Content_Impact_Dataset.csv") %>%
   clean_names()
-  
-# Revenue increase vs AI adoption #
-plot_revenue <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent, y =
-                      revenue_increase_due_to_ai_percent,
-                      colour = industry)) + 
 
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(title = "Revenue Increase vs AI Adoption Across Industries",
+
+#  Revenue vs AI Adoption plot #
+plot_revenue <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent,
+                                      y = revenue_increase_due_to_ai_percent,
+                                      color = industry)) +
+  # Light industry trend lines
+  geom_smooth(method = "lm", se = FALSE, size = 1, alpha = 0.3) +
+  
+  # Bold overall trend line
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE,
+              color = "black", size = 1.5, linetype = "solid") +
+  
+  labs(title = "AI Adoption vs Revenue Increase",
+       subtitle = "Overall trend highlighted in black, industry trends faded",
        x = "AI Adoption Rate (%)",
        y = "Revenue Increase (%)",
        color = "Industry") +
-  theme_minimal()
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    legend.position = "bottom"
+  )
 
-
-# Market Share vs AI adoption #
-
-plot_market <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent, 
-                      y = market_share_of_ai_companies_percent,
-                      colour = industry)) + 
+# Market Share vs AI Adoption #
+plot_market <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent,
+                                     y = market_share_of_ai_companies_percent,
+                                     color = industry)) +
+  # Light industry trend lines #
+  geom_smooth(method = "lm", se = FALSE, size = 1, alpha = 0.3) +
   
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(title = "Market Share vs AI Adoption Across Industries",
+  # Make a Bold overall trend line #
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE,
+              color = "black", size = 1.5, linetype = "solid") +
+  
+  labs(title = "AI Adoption vs Market Share",
+       subtitle = "Overall trend highlighted in black, industry trends faded",
        x = "AI Adoption Rate (%)",
-       y = "Market share (%)",
+       y = "Market Share (%)",
        color = "Industry") +
-  theme_minimal()()
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    legend.position = "bottom"
+  )
 
-# Combine both plots and legends #
+# Combine both plots into one #
+final_dashboard <- (plot_revenue + plot_market) +
+  plot_layout(guides = "collect") &
+  theme(legend.position = "bottom")
 
- plot_1 <- plot_revenue / plot_market + 
-   plot_layout(guides = "collect")
+# Print final dashboard #
+
+print(final_dashboard)

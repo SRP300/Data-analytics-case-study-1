@@ -84,3 +84,42 @@ plot_heatmap <- ggplot(ai_impact, aes(x = year, y = industry, fill = ai_generate
 
 #### Visual 3: 
 
+# Set up common theme for graphs #
+
+graph_theme <- theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    legend.position = "bottom",
+    legend.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+    
+# Boxplot of Job Loss by Industry #
+    
+    plot_boxplot <- ggplot(ai_impact, aes(x = industry, y = job_loss_due_to_ai_percent, fill = industry)) +
+      geom_boxplot(alpha = 0.7) +
+      labs(title = "Job Loss Due to AI Across Industries",
+           x = "Industry",
+           y = "Job Loss (%)") +
+      theme_minimal() +
+      # tilts x-axis labels so they don’t overlap #
+      theme(axis.text.x = element_text(angle = 45, hjust = 1),
+            legend.position = "none")
+    
+# Stacked Bar Chart for Human-AI Collaboration 
+    
+    plot_bar <- ggplot(ai_impact, aes(x = industry, y = human_ai_collaboration_rate_percent, fill = industry)) +
+      geom_bar(stat = "identity") +
+      labs(title = "Human-AI Collaboration Rate Across Industries",
+           x = "Industry",
+           y = "Collaboration (%)") +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1),
+            legend.position = "none")
+    
+# Combine into dashboard #
+    
+    final_dashboard <- (plot_boxplot / plot_bar) +
+      plot_layout(guides = "collect") &  # Collect all legends into one
+      theme(legend.position = "bottom")  # & copys format for all Put the legend at the bottom
+

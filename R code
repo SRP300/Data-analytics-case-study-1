@@ -1,9 +1,40 @@
-# Import Data and cleaning data #
-install.packages("tidyverse")
-install.packages("janitor")
-library(tidyverse)
-library(janitor)
-read_csv(Global_AI_Content_Impact_Dataset)
-Global_AI_Content_Impact_Dataset <- Global_AI_Content_Impact_Dataset %>%
-  clean_names()
+# Installing and loading packages #
 
+if (!require("pacman")) install.packages("pacman")
+library(pacman)
+p_load(tidyverse, janitor, lubridate, patchwork)
+
+# Clean Column names #
+
+ai_impact <- read_csv("Global_AI_Content_Impact_Dataset.csv") %>%
+  clean_names()
+  
+# Revenue increase vs AI adoption #
+plot_revenue <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent, y =
+                      revenue_increase_due_to_ai_percent,
+                      colour = industry)) + 
+  geom_point(size = 3, alpha(7))+
+  geom_smooth(method = "lm", se = FALSE, linetype = "dashed")+
+  labs(title = "Impact of AI Adoption on Revenue and Market Share Across Industries",
+       x = "AI Adoption Rate (%)",
+       y = "Revenue Increase (%)",
+       color = "Industry" +
+         theme_minimal()
+# Market Share vs AI adoption #
+
+plot_market <- ggplot(ai_impact, aes(x = ai_adoption_rate_percent, 
+                      y = market_share_of_ai_companies_percent,
+                      colour = industry)) + 
+  geom_point(size = 3, alpha(7))+
+  geom_smooth(method = "lm", se = FALSE, linetype = "dashed")+
+  labs(title = "Impact of AI Adoption on Revenue and Market Share Across Industries",
+       x = "AI Adoption Rate (%)",
+       y = "Market share (%)",
+       color = "Industry" +
+         theme_minimal()
+# Combine both plots and legends #
+
+ plot_1 <- plot_market/plot_revenue + 
+   plot_layout(guides = "collect")
+ 
+       

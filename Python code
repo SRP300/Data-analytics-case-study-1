@@ -1,0 +1,33 @@
+#### Visual 1 ####
+# Import pandas #
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Read Dataframe #
+
+df = pd.read_csv('/content/Global_AI_Content_Impact_Dataset.csv')
+
+# Get average revenue increase for every industry #
+
+industry_performance = df.groupby('Industry')['Revenue Increase Due to AI (%)'].mean()
+
+# Sort industries from highest average revenue to lowest #
+
+industry_performance_sorted = industry_performance.sort_values(ascending=False)
+# Make blank canvas that plots a 12x8 blank canvas #
+
+plt.figure(figsize=(12, 8))
+
+# Make bar plot with seaborn #
+
+sns.barplot( x = industry_performance_sorted.values,
+            y = industry_performance_sorted.index)
+
+# Make labels for plot #
+
+plt.title('Average Revenue Increase Due to AI by Industry')
+plt.xlabel('Average Revenue Increase (%)')
+plt.ylabel('Industry')
+

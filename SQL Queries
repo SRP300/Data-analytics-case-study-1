@@ -54,7 +54,18 @@ GROUP BY
 ORDER BY
     Opportunity_Quadrant, Average_Revenue_Increase DESC
 
-
+## Finding the dominant AI tool ##
+SELECT
+    Top_AI_Tools_Used,
+    COUNT(Top_AI_Tools_Used) AS Frequency,
+    ROUND(AVG(Human_AI_Collaboration_Rate), 2) AS Average_Collaboration_Rate,
+    ROUND(AVG(Revenue_Increase_Due_to_AI), 2) AS Average_Revenue_Increase
+FROM
+    `AI_Impact_on_DIgital_Media.clean`
+GROUP BY
+    Top_AI_Tools_Used
+ORDER BY
+    Frequency DESC;
 
 
  

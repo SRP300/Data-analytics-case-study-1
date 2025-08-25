@@ -11,15 +11,50 @@ SELECT Country, Year, Industry,`AI Adoption Rate _%_` AS AI_Adoption_rate,
 `Consumer Trust in AI _%_` AS Consumer_Trust_in_AI,
 `Market Share of AI Companies _%_`AS Market_Share_of_AI_Companies FROM `fair-analogy-469221-s0.AI_Impact_on_DIgital_Media.test`
 
-## Find which industry has the highest average adoption rate and what the average increase of revenue is ##
+## Industry Performance ranking ##
 
-SELECT Industry, Round(AVG(AI_Adoption_rate),2) AS avg_AI_Adoption_rate, Round(AVG(Revenue_Increase_Due_to_AI),2) AS avg_Revenue_Increase_Due_to_AI
-FROM `fair-analogy-469221-s0.AI_Impact_on_DIgital_Media.clean` 
-GROUP BY Industry ORDER BY avg_AI_Adoption_rate desc
+SELECT
+    Industry,
+    COUNT(Industry) AS Number_of_Entries,
+    ROUND(AVG(AI_Adoption_rate), 2) AS Average_Adoption_Rate,
+    ROUND(AVG(Revenue_Increase_Due_to_AI), 2) AS Average_Revenue_Increase,
+    ROUND(MIN(Revenue_Increase_Due_to_AI), 2) AS Min_Revenue_Increase,
+    ROUND(MAX(Revenue_Increase_Due_to_AI), 2) AS Max_Revenue_Increase,
+    ROUND(AVG(Consumer_Trust_in_AI), 2) AS Average_Consumer_Trust
+FROM
+    `AI_Impact_on_DIgital_Media.clean`
+GROUP BY
+    Industry
+ORDER BY
+    Average_Revenue_Increase DESC;
  
 ## Look at avg adoption rate and increase in revenue by year ##
 SELECT Year, Round(AVG(AI_Adoption_rate),2) AS avg_AI_Adoption_rate, Round(AVG(Revenue_Increase_Due_to_AI),2) AS avg_Revenue_Increase_Due_to_AI
 FROM `fair-analogy-469221-s0.AI_Impact_on_DIgital_Media.clean` 
 GROUP BY Year ORDER BY Year, avg_AI_Adoption_rate desc
+
+## AI Impact Analysis: Industry Segmentation by Performance Metrics ##
+SELECT
+    Industry,
+    ROUND(AVG(AI_Adoption_rate), 2) AS Average_Adoption_Rate,
+    ROUND(AVG(Revenue_Increase_Due_to_AI), 2) AS Average_Revenue_Increase,
+    CASE
+        WHEN AVG(AI_Adoption_rate) > (SELECT AVG(AI_Adoption_rate) FROM `AI_Impact_on_DIgital_Media.clean`) AND AVG(Revenue_Increase_Due_to_AI) > (SELECT AVG(Revenue_Increase_Due_to_AI) FROM `AI_Impact_on_DIgital_Media.clean`)
+            THEN 'Leader'
+        WHEN AVG(AI_Adoption_rate) <= (SELECT AVG(AI_Adoption_rate) FROM `AI_Impact_on_DIgital_Media.clean`) AND AVG(Revenue_Increase_Due_to_AI) > (SELECT AVG(Revenue_Increase_Due_to_AI) FROM `AI_Impact_on_DIgital_Media.clean`)
+            THEN 'Emerging'
+        WHEN AVG(AI_Adoption_rate) > (SELECT AVG(AI_Adoption_rate) FROM `AI_Impact_on_DIgital_Media.clean`) AND AVG(Revenue_Increase_Due_to_AI) <= (SELECT AVG(Revenue_Increase_Due_to_AI) FROM `AI_Impact_on_DIgital_Media.clean`)
+            THEN 'Saturated'
+        ELSE 'Laggard'
+    END AS Opportunity_Quadrant
+FROM
+    `AI_Impact_on_DIgital_Media.clean`
+GROUP BY
+    Industry
+ORDER BY
+    Opportunity_Quadrant, Average_Revenue_Increase DESC
+
+
+
 
  

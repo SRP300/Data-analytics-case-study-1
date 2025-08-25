@@ -1,4 +1,5 @@
-#### Visual 1 ####
+## Setting up the pandas and data ##
+
 # Import pandas #
 
 import pandas as pd
@@ -9,13 +10,20 @@ import seaborn as sns
 
 df = pd.read_csv('/content/Global_AI_Content_Impact_Dataset.csv')
 
-# Get average revenue increase for every industry #
+##Visual 1 ##
 
-industry_performance = df.groupby('Industry')['Revenue Increase Due to AI (%)'].mean()
+## Get average revenue increase for every industry ##
+
+# Group by industry and get average #
+industry_performance = df.groupby('industry')['revenue_increase_due_to_ai_'].mean()
 
 # Sort industries from highest average revenue to lowest #
 
 industry_performance_sorted = industry_performance.sort_values(ascending=False)
+
+# Change plot style #
+plt.style.use('seaborn-v0_8-whitegrid')
+
 # Make blank canvas that plots a 12x8 blank canvas #
 
 plt.figure(figsize=(12, 8))
@@ -23,11 +31,69 @@ plt.figure(figsize=(12, 8))
 # Make bar plot with seaborn #
 
 sns.barplot( x = industry_performance_sorted.values,
-            y = industry_performance_sorted.index)
+            y = industry_performance_sorted.index,
+             palette='viridis'
+)
 
 # Make labels for plot #
+plt.title( 'Average Revenue Increase Due to AI by Industry')
+plt.xlabel( 'Average Revenue Increase (%)')
+plt.ylabel( 'Industry')
 
 plt.title('Average Revenue Increase Due to AI by Industry')
 plt.xlabel('Average Revenue Increase (%)')
 plt.ylabel('Industry')
 
+## Visual 2 ##
+
+# Find industry average #
+
+industry_avg = df.groupby('Industry')[['AI Adoption Rate (%)','Revenue Increase Due to AI (%)']].mean()
+
+
+# Create the Visualization #
+
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.figure(figsize=(10, 7))
+
+ax = sns.scatterplot(
+    data=industry_avg,
+    x='AI Adoption Rate (%)',      
+    y='Revenue Increase Due to AI (%)',     
+    s=200,
+    hue='Industry',
+    legend=False
+)
+
+
+# Getting averages for revenue and ai adoption by industry #
+
+avg_adoption = industry_avg['AI Adoption Rate (%)'].mean()
+avg_revenue = industry_avg['Revenue Increase Due to AI (%)'].mean()
+
+# Adding lines for quadrant #
+ax.axvline(x=avg_adoption, color='grey', linestyle='--')
+ax.axhline(y=avg_revenue, color='grey', linestyle='--')
+
+
+# Label Plot axis #
+
+for industry_name, row in industry_avg.iterrows():
+    plt.text(
+        x=row['AI Adoption Rate (%)'] + 0.5, 
+        y=row['Revenue Increase Due to AI (%)'], 
+        s=industry_name,
+        fontdict={'size': 11}
+    )
+# Labeling quadrants based off average revenue locations #
+
+plt.text(avg_adoption * 1.05, avg_revenue * 1.05, 'Leaders', fontsize=14, color='green', fontweight='bold')
+plt.text(avg_adoption * 0.95, avg_revenue * 1.05, 'Emerging', fontsize=14, color='blue', fontweight='bold', ha='right')
+plt.text(avg_adoption * 1.05, avg_revenue * 0.95, 'Saturated', fontsize=14, color='orange', fontweight='bold', va='top')
+plt.text(avg_adoption * 0.95, avg_revenue * 0.95, 'Laggards', fontsize=14, color='red', fontweight='bold', ha='right', va='top')
+
+# Title and Axis labels #
+
+ax.set_title('Strategic Opportunity Quadrant: AI Adoption vs. Revenue Increase', fontsize=16, fontweight='bold')
+ax.set_xlabel('Average AI Adoption Rate (%)', fontsize=12)
+ax.set_ylabel('Average Revenue Increase (%)', fontsize=12)

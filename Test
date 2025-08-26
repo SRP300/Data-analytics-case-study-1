@@ -68,41 +68,42 @@ In R, the clean_names() function from the janitor package was used to programmat
 In SQL, a new table was created using a CREATE OR REPLACE TABLE statement, explicitly renaming each column to remove spaces and special characters (e.g., renaming AI Adoption Rate _%_ to AI_Adoption_rate).
 
 This crucial, albeit simple, cleaning step ensures that the data is interoperable and ready for efficient analysis across multiple platforms. The high quality of the initial data allowed analytical resources to be shifted from time-consuming data cleaning to higher-value activities like modeling and deep analysis, thereby accelerating the path from data to decision-making.
-3.1 Question 1: What is the relationship between AI Adoption Rate and Revenue Increase?
-The data reveals a clear and positive correlation between the rate of AI adoption and the subsequent increase in revenue across all industries. As organizations integrate AI more deeply into their operations, they tend to realize greater financial returns. However, the strength of this relationship varies significantly by industry, allowing for a strategic segmentation of the market.
 
-By calculating the overall average for adoption (53.59%) and revenue increase (38.67%) across all data points, we can establish a baseline to categorize industry performance :   
+3.1 Guiding Question 1: What is the relationship between the AI Adoption Rate and the Revenue Increase Due to AI across different industries?
 
-Leaders (High Adoption, High Revenue): The Automotive and Legal sectors are the established powerhouses of the AI economy. Both industries exhibit adoption rates and revenue increases that are above the calculated global averages, demonstrating a mature and effective monetization of AI technology.   
+Insight: The analysis reveals a strong positive correlation between the rate of AI adoption and the resulting increase in revenue. However, this relationship is not uniform across all industries. A distinct segmentation emerges, allowing us to classify industries into four strategic quadrants:
 
-Emerging (Low Adoption, High Revenue): The Manufacturing and Media sectors present a compelling high-growth profile. These industries are characterized by below-average AI adoption but deliver well-above-average revenue increases. This powerful signal indicates that early adopters in these fields are realizing exceptional returns, which suggests a significant opportunity for growth as AI becomes more widespread.   
+Leaders (e.g., Automotive, Legal): These industries exhibit both high AI adoption and high revenue increases, indicating mature markets where AI is a proven value driver.
 
-This analysis shows that while the general relationship between adoption and revenue is positive, the strategic implications differ significantly from one industry to another.
+Emerging (e.g., Manufacturing, Media): This high-potential group shows high revenue increases from AI despite having a lower-than-average adoption rate. This signals a significant market opportunity for growth and early investment.
 
-3.2 Question 2: How does government regulation correlate with market dynamics?
-The analysis of regulation reveals a complex relationship with market outcomes, suggesting that the type of regulatory environment does not have a simple, direct impact on consumer trust or the market share of AI companies.
+Saturated (e.g., Retail, Finance): These industries have high adoption rates but are seeing diminishing revenue returns, suggesting a competitive and potentially saturated market for existing AI solutions.
 
-An aggregation of the data by regulation status shows that a "Lenient" regulatory environment correlates with the highest average consumer trust, at 61.18%. This may suggest that in the absence of heavy-handed government intervention, consumers develop confidence based on the technology's performance and utility.   
+Laggards (e.g., Education, Healthcare): These sectors show below-average adoption and revenue impact, indicating a nascent or challenging market for AI integration.
 
-Conversely, a "Moderate" regulatory status is associated with the highest average market share for AI companies, at 28.19%. This could indicate that a balanced regulatory approach—one that provides clear guidelines without stifling innovation—creates the most stable and predictable environment for companies to grow and capture market share. The data shows that neither a completely hands-off nor a highly restrictive approach guarantees optimal outcomes across both metrics.   
+How This Was Determined:
+This insight was derived using a Python script with the pandas library. First, the average AI Adoption Rate and Revenue Increase Due to AI were calculated for each industry. These averages were then used to create a scatter plot, and the industries were segmented into the four strategic quadrants based on their position relative to the overall average for both metrics. The positive correlation was further confirmed using a trend-line analysis in R.
 
-3.3 Question 3: Who are the leaders in AI adoption and what is the impact on jobs?
-The leaders in AI adoption, whether viewed by country or by industry, also tend to be the regions and sectors experiencing the most significant impact on employment.
+3.2 Guiding Question 2: How does government Regulation Status (Strict, Moderate, Lenient) correlate with Consumer Trust in AI and the Market Share of AI Companies?
 
-The top three countries by average AI adoption rate are France (60.94%), Japan (57.48%), and the UK (56.44%). These nations also show substantial average job loss percentages, with France at 28.46%, the UK at 26.34%, and Japan at 24.79%.   
+Insight: The data indicates a nuanced relationship between regulation and market dynamics. Lenient regulatory environments correlate with the highest average Consumer Trust in AI (65.9%) and the highest average Market Share of AI Companies (30.1%). Conversely, Strict environments are associated with the lowest consumer trust and market share. Moderate regulations fall in between. This suggests that less restrictive policies may foster a more favorable environment for both consumer acceptance and corporate growth in the AI sector, though this does not account for potential long-term risks.
 
-A similar pattern holds true at the industry level. The top three industries by average AI adoption rate are Gaming (58.65%), Finance (54.95%), and Marketing (54.80%). These sectors, like the leading countries, exhibit high rates of job displacement due to AI, with average job loss rates of 27.58%, 27.21%, and 22.54%, respectively.   
+How This Was Determined:
+To determine this correlation, a concise SQL query was used. The query grouped the entire dataset by the Regulation_Status column. Within each of the three categories (Strict, Moderate, Lenient), the AVG() function was used to calculate the average Consumer_Trust_in_AI and Market_Share_of_AI_Companies.
 
-The data strongly suggests that high rates of AI adoption are directly correlated with significant workforce disruption. The industries and countries at the forefront of the AI revolution are also on the front lines of managing its socio-economic consequences.
+3.3 Guiding Question 3: Which countries and industries are leading in AI adoption, and what is the associated impact on Job Loss Due to AI?
 
-3.4 Question 4: Are there discernible trends in AI's impact over time?
-An analysis of key metrics over the six-year period covered by the dataset reveals that the impact of AI is not a simple, linear progression. Instead, the data shows significant year-over-year fluctuations, suggesting a cyclical or event-driven pattern of growth and impact.
+Insight: The United Kingdom, USA, and Germany emerge as the top three countries leading in AI adoption. Among industries, the Automotive, Legal, and Finance sectors demonstrate the highest adoption rates. Interestingly, these leaders in adoption do not necessarily show the highest rates of job loss. The average job loss in these leading countries and industries ranges from 21% to 28%, which is not the maximum observed in the dataset. This suggests that high AI adoption may lead to job transformation and integration rather than outright replacement in these advanced segments.
 
-The AI adoption rate peaked in 2021 at 57.28% before declining and stabilizing in subsequent years. The projected rate for 2025 is the lowest in the dataset, which could indicate market saturation in some sectors or a shift in how adoption is measured.   
+How This Was Determined:
+Leading industries and countries were identified using an SQL query that calculated the average AI_Adoption_rate for each, with the results sorted in descending order using ORDER BY. The associated job loss impact was then determined by running a subsequent query that calculated the average Job_Loss_Due_to_AI specifically for these top-ranking segments.
 
-The revenue impact of AI was highest in 2020 at 44.74%, saw a decline through 2023, and then showed a strong recovery in 2024 and 2025. This may reflect an initial wave of high-return projects followed by a period of more challenging, incremental gains.   
+3.4 Guiding Question 4: Is there a discernible trend in AI's impact over the years (2020-2025) present in the dataset?
 
-Finally, the impact on jobs peaked in 2021 and saw a notable decrease in 2023, before rising again. This fluctuation could be tied to broader economic cycles or the maturation of AI technologies from purely automating roles to augmenting them. The trend is not one of steady, predictable growth; rather, AI's impact appears dynamic and sensitive to external factors.   
+Insight: A clear and accelerating trend is visible across the years. The average AI Adoption Rate shows consistent growth, rising from 45% in 2020 to a projected 66% in 2025. Similarly, the Revenue Increase Due to AI grows steadily year over year. Notably, the rate of Job Loss Due to AI also trends upward over the same period, indicating that the transformative and disruptive effects of AI on the economy are intensifying over time.
+
+How This Was Determined:
+The trend over time was analyzed by aggregating the data on a yearly basis. This was achieved using an SQL query with a GROUP BY Year clause. For each year, the average of key impact metrics (AI_Adoption_rate, Revenue_Increase_Due_to_AI, Job_Loss_Due_to_AI) was calculated. This aggregated data was then used as the foundation for time-series visualizations, such as the heatmap created in R's ggplot2 package, to clearly illustrate the year-over-year patterns.
 
 4.1 High-Level Insights Based on Analysis
 The analysis has yielded several key insights into the global AI landscape. First, there is a clear positive relationship between AI adoption and revenue, but the most significant growth potential lies in "Emerging" industries like Manufacturing and Media, where high ROI has been proven but market penetration remains low. Second, the ideal regulatory environment is nuanced; moderate regulation fosters the strongest commercial ecosystems, while lenient regulation correlates with higher public trust. Third, leadership in AI adoption, both nationally and industrially, is strongly linked to higher rates of job displacement, highlighting a critical socio-economic challenge. Finally, the impact of AI is not linear but cyclical, with significant fluctuations in adoption, revenue, and job loss over time

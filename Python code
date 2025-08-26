@@ -46,6 +46,7 @@ plt.ylabel('Industry')
 
 ## Visual 2 ##
 
+
 # Find industry average #
 
 industry_avg = df.groupby('Industry')[['AI Adoption Rate (%)','Revenue Increase Due to AI (%)']].mean()
@@ -58,8 +59,8 @@ plt.figure(figsize=(10, 7))
 
 ax = sns.scatterplot(
     data=industry_avg,
-    x='AI Adoption Rate (%)',      
-    y='Revenue Increase Due to AI (%)',     
+    x='AI Adoption Rate (%)',
+    y='Revenue Increase Due to AI (%)',
     s=200,
     hue='Industry',
     legend=False
@@ -80,20 +81,23 @@ ax.axhline(y=avg_revenue, color='grey', linestyle='--')
 
 for industry_name, row in industry_avg.iterrows():
     plt.text(
-        x=row['AI Adoption Rate (%)'] + 0.5, 
-        y=row['Revenue Increase Due to AI (%)'], 
+        x=row['AI Adoption Rate (%)'] + 0.5,
+        y=row['Revenue Increase Due to AI (%)'],
         s=industry_name,
         fontdict={'size': 11}
     )
 # Labeling quadrants based off average revenue locations #
 
 plt.text(avg_adoption * 1.05, avg_revenue * 1.05, 'Leaders', fontsize=14, color='green', fontweight='bold')
-plt.text(avg_adoption * 0.95, avg_revenue * 1.05, 'Emerging', fontsize=14, color='blue', fontweight='bold', ha='right')
+plt.text(avg_adoption * 0.95, avg_revenue * 1.05, 'Upcoming', fontsize=14, color='blue', fontweight='bold', ha='right')
 plt.text(avg_adoption * 1.05, avg_revenue * 0.95, 'Saturated', fontsize=14, color='orange', fontweight='bold', va='top')
-plt.text(avg_adoption * 0.95, avg_revenue * 0.95, 'Laggards', fontsize=14, color='red', fontweight='bold', ha='right', va='top')
+plt.text(avg_adoption * 0.95, avg_revenue * 0.95, 'Underperformer', fontsize=14, color='red', fontweight='bold', ha='right', va='top')
 
 # Title and Axis labels #
 
 ax.set_title('Strategic Opportunity Quadrant: AI Adoption vs. Revenue Increase', fontsize=16, fontweight='bold')
 ax.set_xlabel('Average AI Adoption Rate (%)', fontsize=12)
 ax.set_ylabel('Average Revenue Increase (%)', fontsize=12)
+
+
+

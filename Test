@@ -33,23 +33,6 @@ Consumer Trust in AI (%): A measure of public confidence in AI technologies with
 
 In assessing the data's integrity according to the ROCCC framework (Reliable, Original, Comprehensive, Current, Cited), the dataset is evaluated as highly comprehensive, covering a wide array of metrics, geographies, and industries. Its currency, with data extending to 2025, allows for forward-looking analysis. For the purposes of this case study, the data is assumed to be reliable. This structured and complete nature of the data provides a strong foundation for the subsequent analysis. 
 
-## 1.2 Description of Data Sources
-The foundation of this analysis is the Global AI Content Impact Dataset, a comprehensive collection of metrics detailing the influence of Artificial Intelligence across multiple sectors and nations. This dataset covers the period from 2020 to 2025, encompassing 10 distinct industries within 10 countries.   
-
-A brief data dictionary for the key analytical columns is as follows:
-
-AI Adoption Rate (%): The percentage of companies within a given sector that have integrated AI technologies into their core operations.
-
-Revenue Increase Due to AI (%): The average percentage increase in revenue attributed directly to the implementation of AI solutions.
-
-Top AI Tools Used: The most prevalent AI software or platform utilized within that market segment.
-
-Regulation Status: The classification of the governmental regulatory environment concerning AI (Strict, Moderate, or Lenient).
-
-Consumer Trust in AI (%): A measure of public confidence in AI technologies within a specific country.
-
-In assessing the data's integrity according to the ROCCC framework (Reliable, Original, Comprehensive, Current, Cited), the dataset is evaluated as highly comprehensive, covering a wide array of metrics, geographies, and industries. Its currency, with data extending to 2025, allows for forward-looking analysis. For the purposes of this case study, the data is assumed to be reliable. This structured and complete nature of the data provides a strong foundation for the subsequent analysis. 
-
 # Part II: Data Refinement and Preparation for Analysis
 A rigorous and transparent data preparation process is essential to ensure the validity of any analytical findings. This section documents the tools and methodologies used to process the raw data and prepare it for strategic analysis.
 

@@ -57,12 +57,9 @@ Download dataset: https://www.kaggle.com/datasets/atharvasoundankar/impact-of-ai
 
 # Guiding Questions 
 What is the relationship between the AI Adoption Rate and the Revenue Increase Due to AI across different industries?
-
-How does government Regulation Status (Strict, Moderate, Lenient) correlate with Consumer Trust in AI and the Market Share of AI Companies?
-
-Which countries and industries are leading in AI adoption, and what is the associated impact on Job Loss Due to AI?
-
-Is there a discernible trend in AI's impact over the years (2020-2025) present in the dataset?
+which industries have been the most aggressive in adopting AI-generated content over the last few years? 
+which industries is AI causing the most job displacement, and where is it creating successful human-AI collaboration?
+Is there a positive correlation between adopting AI and increasing revenue or market share?
 
 # Conclusion 
 The analysis has yielded several key insights into the global AI landscape. First, there is a clear positive relationship between AI adoption and revenue, but the most significant growth potential lies in "Emerging" industries like Manufacturing and Media, where high ROI has been proven but market penetration remains low. Second, the ideal regulatory environment is nuanced; moderate regulation fosters the strongest commercial ecosystems, while lenient regulation correlates with higher public trust. Third, leadership in AI adoption, both nationally and industrially, is strongly linked to higher rates of job displacement, highlighting a critical socio-economic challenge. Finally, the impact of AI is not linear but cyclical, with significant fluctuations in adoption, revenue, and job loss over time.

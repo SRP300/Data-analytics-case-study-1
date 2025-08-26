@@ -30,7 +30,7 @@ Consumer Trust in AI (%): A measure of public confidence in AI technologies with
 
 In assessing the data's integrity according to the ROCCC framework (Reliable, Original, Comprehensive, Current, Cited), the dataset is evaluated as highly comprehensive, covering a wide array of metrics, geographies, and industries. Its currency, with data extending to 2025, allows for forward-looking analysis. For the purposes of this case study, the data is assumed to be reliable. This structured and complete nature of the data provides a strong foundation for the subsequent analysis. 
 
-# Part II: Data Refinement and Preparation for Analysis
+# Cleaning and Preparing Data for Analysis
 A rigorous and transparent data preparation process is essential to ensure the validity of any analytical findings. This section documents the tools and methodologies used to process the raw data and prepare it for strategic analysis.
 
 ## Tools for Transformation
@@ -49,7 +49,7 @@ In SQL, a new table was created using a CREATE OR REPLACE TABLE statement, expli
 
 This crucial, albeit simple, cleaning step ensures that the data is interoperable and ready for efficient analysis across multiple platforms. The high quality of the initial data allowed analytical resources to be shifted from time-consuming data cleaning to higher-value activities like modeling and deep analysis, thereby accelerating the path from data to decision-making.
 
-# Guidelines
+# Guidelines to use code
 Download dataset: https://www.kaggle.com/datasets/atharvasoundankar/impact-of-ai-on-digital-media-2020-2025?resource=download 
 1. Open SQL queries in preferred relational database
 2. Open R visuals in preferred Integrated Development Environment or R terminal

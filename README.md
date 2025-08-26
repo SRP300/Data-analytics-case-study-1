@@ -2,7 +2,7 @@
 
 # Step 1: Ask
 
-Business task : "To identify high-growth opportunities for marketing agencies, this analysis will determine which industries and countries have demonstrated the strongest positive relationship between AI adoption and key performance indicators (Revenue Increase, Market Share) from 2020-2025. The final recommendation will be a 'Priority Matrix' advising agencies on where to focus their new AI-powered service offerings.
+Business task : "To identify high-growth opportunities for marketing agencies, this analysis will determine which industries have demonstrated the strongest positive relationship between AI adoption and key performance indicators (Revenue Increase, Market Share) from 2020-2025. The final recommendation will be a 'Priority Matrix' advising agencies on where to focus their new AI-powered service offerings.
 
 # Step 2 : Prepare and Process
 

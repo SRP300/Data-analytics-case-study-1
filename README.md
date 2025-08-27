@@ -47,7 +47,7 @@ or from [clicking here](Data-analytics-case-study-1/Global_AI_Content_Impact_Dat
 
 1. Open [SQL queries](SQL_queries) in preferred relational database
 2. Open visuals made with [R code](R_code) in preferred Integrated Development Environment or R terminal
-3. Open [Python code](Python_code) in preferred environment 
+3. Open visual made with [Python code](Python_code) in preferred environment 
 
 # Guiding Questions 
 

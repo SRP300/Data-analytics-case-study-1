@@ -43,7 +43,7 @@ This crucial, albeit simple, cleaning step ensures that the data is interoperabl
 
 # Guidelines to use code
 Download dataset: https://www.kaggle.com/datasets/atharvasoundankar/impact-of-ai-on-digital-media-2020-2025?resource=download 
-or from [clicking here](Data-analytics-case-study-1/Data-analytics-case-study-1/Global_AI_Content_Impact_Dataset.csv)
+or from [clicking here](Data-analytics-case-study-1/Global_AI_Content_Impact_Dataset.csv)
 
 1. Open [SQL queries](Data-analytics-case-study-1/SQL_queries) in preferred relational database
 2. Open visuals made with [R code](Data-analytics-case-study-1/R_code) in preferred Integrated Development Environment or R terminal

@@ -1,56 +1,3 @@
-The Global AI Landscape: An Investment Analysis of Industry Adoption and Economic Impact
-
-# Part I: Framing the Question & Assembling the Data
-
-This report presents a data-driven analysis of the global Artificial Intelligence landscape, designed to guide strategic investment decisions. By examining trends in AI adoption, economic impact, and technological ecosystems across key industries, this analysis identifies high-growth opportunities and provides actionable recommendations for capital allocation.
-
-## 1.1 Statement of the Business Task
-
-The client for this analysis is for a venture capital firm preparing to launch a new marketing fund dedicated to investments in the Artificial Intelligence sector. To ensure the fund's thesis is grounded in robust market evidence, the stakeholders requires a comprehensive report that addresses the following core strategic questions :   
-
-What is the relationship between the AI Adoption Rate and the Revenue Increase Due to AI across different industries?
-
-How does government Regulation Status (Strict, Moderate, Lenient) correlate with Consumer Trust in AI and the Market Share of AI Companies?
-
-Which countries and industries are leading in AI adoption, and what is the associated impact on Job Loss Due to AI?
-
-Is there a discernible trend in AI's impact over the years (2020-2025) present in the dataset?
-
-## 1.2 Description of Data Sources
-The foundation of this analysis is the Global AI Content Impact Dataset, a comprehensive collection of metrics detailing the influence of Artificial Intelligence across multiple sectors and nations. This dataset covers the period from 2020 to 2025, encompassing 10 distinct industries within 10 countries.   
-
-A brief data dictionary for the key analytical columns is as follows:
-
-AI Adoption Rate (%): The percentage of companies within a given sector that have integrated AI technologies into their core operations.
-
-Revenue Increase Due to AI (%): The average percentage increase in revenue attributed directly to the implementation of AI solutions.
-
-Top AI Tools Used: The most prevalent AI software or platform utilized within that market segment.
-
-Regulation Status: The classification of the governmental regulatory environment concerning AI (Strict, Moderate, or Lenient).
-
-Consumer Trust in AI (%): A measure of public confidence in AI technologies within a specific country.
-
-In assessing the data's integrity according to the ROCCC framework (Reliable, Original, Comprehensive, Current, Cited), the dataset is evaluated as highly comprehensive, covering a wide array of metrics, geographies, and industries. Its currency, with data extending to 2025, allows for forward-looking analysis. For the purposes of this case study, the data is assumed to be reliable. This structured and complete nature of the data provides a strong foundation for the subsequent analysis. 
-
-# Part II: Data Refinement and Preparation for Analysis
-A rigorous and transparent data preparation process is essential to ensure the validity of any analytical findings. This section documents the tools and methodologies used to process the raw data and prepare it for strategic analysis.
-
-## 2.1 Tools for Transformation
-The technical toolkit for this project was selected to reflect industry best practices and demonstrate versatility. Data cleaning and initial exploration were performed using R (leveraging the tidyverse suite) and SQL. The core analysis was conducted using SQL for data aggregation, while visualizations were generated using both Python (with matplotlib and seaborn) and R (with ggplot2), showcasing proficiency across key data analysis and visualization environments.
-
-## 2.2 Documentation of Data Cleaning and Manipulation
-Upon initial inspection, the dataset was found to be of high quality, with no missing values or significant data type inconsistencies. The primary data processing task was to standardize the column names, which contained spaces and special characters (e.g.,    
-
-Revenue Increase Due to AI (%)). This format is incompatible with efficient querying in SQL and can be cumbersome in other analytical environments.
-
-To address this, two methods were employed:
-
-In R, the clean_names() function from the janitor package was used to programmatically convert all column headers to a consistent, snake_case format.
-
-In SQL, a new table was created using a CREATE OR REPLACE TABLE statement, explicitly renaming each column to remove spaces and special characters (e.g., renaming AI Adoption Rate _%_ to AI_Adoption_rate).
-
-This crucial, albeit simple, cleaning step ensures that the data is interoperable and ready for efficient analysis across multiple platforms. The high quality of the initial data allowed analytical resources to be shifted from time-consuming data cleaning to higher-value activities like modeling and deep analysis, thereby accelerating the path from data to decision-making.
 
 # Part III: Answering Key Analytical Questions
 This section directly addresses the four guiding questions. Each is answered using a detailed narrative derived from the underlying quantitative analysis, transforming raw data into strategic insights.
@@ -77,7 +24,7 @@ Insight: The data indicates a nuanced relationship between regulation and market
 How This Was Determined:
 To determine this correlation, a concise SQL query was used. The query grouped the entire dataset by the Regulation_Status column. Within each of the three categories (Strict, Moderate, Lenient), the AVG() function was used to calculate the average Consumer_Trust_in_AI and Market_Share_of_AI_Companies.
 
-## 3.3 Guiding Question 3: Which countries and industries are leading in AI adoption, and what is the associated impact on Job Loss Due to AI?
+## 3.3 Guiding Question 3: Which industries are leading in AI adoption, and what is the associated impact on Job Loss Due to AI?
 
 Insight: The United Kingdom, USA, and Germany emerge as the top three countries leading in AI adoption. Among industries, the Automotive, Legal, and Finance sectors demonstrate the highest adoption rates. Interestingly, these leaders in adoption do not necessarily show the highest rates of job loss. The average job loss in these leading countries and industries ranges from 21% to 28%, which is not the maximum observed in the dataset. This suggests that high AI adoption may lead to job transformation and integration rather than outright replacement in these advanced segments.
 

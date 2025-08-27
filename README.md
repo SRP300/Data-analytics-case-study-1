@@ -45,9 +45,9 @@ This crucial, albeit simple, cleaning step ensures that the data is interoperabl
 Download dataset: https://www.kaggle.com/datasets/atharvasoundankar/impact-of-ai-on-digital-media-2020-2025?resource=download 
 or from [clicking here](Data-analytics-case-study-1/Global_AI_Content_Impact_Dataset.csv)
 
-1. Open [SQL queries](Data-analytics-case-study-1/SQL_queries) in preferred relational database
-2. Open visuals made with [R code](Data-analytics-case-study-1/R_code) in preferred Integrated Development Environment or R terminal
-3. Open [Python code](Data-analytics-case-study-1/Python_code) in preferred environment 
+1. Open [SQL queries](SQL_queries) in preferred relational database
+2. Open visuals made with [R code](R_code) in preferred Integrated Development Environment or R terminal
+3. Open [Python code](Python_code) in preferred environment 
 
 # Guiding Questions 
 
@@ -62,4 +62,4 @@ Is there a positive correlation between adopting AI and increasing revenue or ma
 # Conclusion 
 The analysis has yielded several key insights into the global AI landscape. First, there is a clear positive relationship between AI adoption and revenue, but the most significant growth potential lies in "Emerging" industries like Manufacturing and Media, where high ROI has been proven but market penetration remains low. Second, the ideal regulatory environment is nuanced; moderate regulation fosters the strongest commercial ecosystems, while lenient regulation correlates with higher public trust. Third, leadership in AI adoption, both nationally and industrially, is strongly linked to higher rates of job displacement, highlighting a critical socio-economic challenge. Finally, the impact of AI is not linear but cyclical, with significant fluctuations in adoption, revenue, and job loss over time.
 
-Acess Analysis [powerpoint here.](Data-analytics-case-study-1/Data_analytics_project.pptx)
+Acess Analysis [powerpoint here.](Data_analytics_project.pptx)

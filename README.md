@@ -43,7 +43,7 @@ This crucial, albeit simple, cleaning step ensures that the data is interoperabl
 
 # Guidelines to use code
 Download dataset: https://www.kaggle.com/datasets/atharvasoundankar/impact-of-ai-on-digital-media-2020-2025?resource=download 
-or from [clicking this](Data-analytics-case-study-1/Data-analytics-case-study-1/Global_AI_Content_Impact_Dataset.csv)
+or from [clicking here](Data-analytics-case-study-1/Data-analytics-case-study-1/Global_AI_Content_Impact_Dataset.csv)
 
 1. Open [SQL queries](Data-analytics-case-study-1/SQL_queries) in preferred relational database
 2. Open visuals made with [R code](Data-analytics-case-study-1/R_code) in preferred Integrated Development Environment or R terminal
@@ -52,8 +52,11 @@ or from [clicking this](Data-analytics-case-study-1/Data-analytics-case-study-1/
 # Guiding Questions 
 
 What is the relationship between the AI Adoption Rate and the Revenue Increase Due to AI across different industries?
+
 Which industries have been the most aggressive in adopting AI-generated content over the last few years? 
+
 Which industries is AI causing the most job displacement, and where is it creating successful human-AI collaboration?
+
 Is there a positive correlation between adopting AI and increasing revenue or market share?
 
 # Conclusion 

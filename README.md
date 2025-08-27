@@ -50,9 +50,10 @@ or from [clicking this](Data-analytics-case-study-1/Data-analytics-case-study-1/
 3. Open [Python code](Data-analytics-case-study-1/Python_code) in preferred environment 
 
 # Guiding Questions 
+
 What is the relationship between the AI Adoption Rate and the Revenue Increase Due to AI across different industries?
-which industries have been the most aggressive in adopting AI-generated content over the last few years? 
-which industries is AI causing the most job displacement, and where is it creating successful human-AI collaboration?
+Which industries have been the most aggressive in adopting AI-generated content over the last few years? 
+Which industries is AI causing the most job displacement, and where is it creating successful human-AI collaboration?
 Is there a positive correlation between adopting AI and increasing revenue or market share?
 
 # Conclusion 
